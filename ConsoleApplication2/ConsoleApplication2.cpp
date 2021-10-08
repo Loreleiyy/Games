@@ -20,9 +20,9 @@ struct Game {
 	const int xsz = 50;
 	const int ysz = 25;
 	mapSi **map = nullptr;
-	int lvl;
-	int quan;
-	int bariers;
+	int lvl =1;
+	int quan = lvl;
+	
 };
 
 
@@ -106,7 +106,7 @@ int main() {
 		y = 0;
 		g.map[y][x] = mapSi::gamer;
 		
-		g.bariers = g.lvl;
+		
 		g.quan = g.lvl;
 		initS(g, mapSi::apple);
 		initS(g, mapSi::bar);
@@ -115,37 +115,37 @@ int main() {
 		mapprint(g);
 		while (g.quan != 0) {
 			run = _getch();
-			if ((run == 'D' || run == 'd')) {
-				if (x != 49) {
+			if ((run == 'D' || run == 'd')&& x != 49) {
+				
 					
 					wasd(y, x, 0, 1, g);
 					system("cls");
 					mapprint(g);
-				}
+				
 			}
-			else if (run == 'A' || run == 'a') {
-				if (x != 0) {
+			else if ((run == 'A' || run == 'a')&& x != 0) {
+				
 					
 					wasd(y, x, 0, -1, g);
 					system("cls");
 					mapprint(g);
-				}
+				
 			}
-			else if (run == 'W' || run == 'w') {
-				if (y != 0) {
+			else if ((run == 'W' || run == 'w')&& y != 0) {
+				
 					
 					wasd(y, x, -1, 0, g);
 					system("cls");
 					mapprint(g);
-				}
+				
 			}
-			else if (run == 'S' || run == 's') {
-				if (y != 24) {
+			else if ((run == 'S' || run == 's')&& y != 24) {
+				
 					
 					wasd(y, x, 1, 0, g);
 					system("cls");
 					mapprint(g);
-				}
+				
 			}
 			
 
